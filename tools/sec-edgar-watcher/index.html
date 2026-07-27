@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEC Filing Watcher — pay-per-call API | Zinin</title>
+<meta name="description" content="Watch stock tickers for new SEC filings — 10-K, 10-Q, 8-K, S-1 and more. Official SEC EDGAR data, free, no API key or login. Filter by form type and…">
+<link rel="canonical" href="https://timzinin.com/tools/sec-edgar-watcher/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SEC Filing Watcher — pay-per-call API">
+<meta property="og:description" content="Watch stock tickers for new SEC filings — 10-K, 10-Q, 8-K, S-1 and more. Official SEC EDGAR data, free, no API key or login. Filter by form type and…">
+<meta property="og:url" content="https://timzinin.com/tools/sec-edgar-watcher/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SEC EDGAR Filing Watcher — New Filings by Ticker",
+  "description": "Watch stock tickers for new SEC filings — 10-K, 10-Q, 8-K, S-1 and more. Official SEC EDGAR data, free, no API key or login. Filter by form type and…",
+  "url": "https://timzinin.com/tools/sec-edgar-watcher/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (HTTP API)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.01",
+    "priceCurrency": "USD",
+    "url": "https://timzinin.com/tools/sec-edgar-watcher/",
+    "description": "Pay-per-call via x402 (USDC on Base) or Apify Store"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Zinin",
+    "url": "https://timzinin.com"
+  },
+  "sameAs": "https://apify.com/zinin/sec-edgar-watcher"
+}</script>
+<style>
+:root{
+  --ink:#1b1712;
+  --paper:#f4f1ea;
+  --paper-2:#e9e2d3;
+  --card:#fffdf8;
+  --mint:#0e7a5f;
+  --mint-deep:#0a5c47;
+  --amber:#c98a1a;
+  --line:#ddd4bf;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Consolas,monospace;
+  --disp:'Space Grotesk',system-ui,-apple-system,sans-serif;
+  --sans:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.62;
+  font-size:17px;
+}
+.wrap{max-width:740px;margin:0 auto;padding:0 22px}
+.wrap.wide{max-width:920px}
+h1,h2,h3,.disp{font-family:var(--disp);letter-spacing:-0.01em;line-height:1.12}
+a{color:var(--mint-deep);text-decoration-thickness:1px;text-underline-offset:3px}
+code{font-family:var(--mono);font-size:.86em;background:var(--paper-2);border-radius:5px;padding:2px 6px}
+pre{font-family:var(--mono);font-size:13.5px;background:var(--ink);color:var(--paper);border-radius:14px;padding:18px 20px;overflow-x:auto;line-height:1.55;margin:16px 0}
+pre code{background:none;padding:0;color:inherit;font-size:1em}
+
+header.top{background:var(--ink);color:var(--paper);padding:34px 0 40px}
+header.top .crumb{font-family:var(--mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;opacity:.75}
+header.top .crumb a{color:var(--paper);opacity:.85}
+header.top .kicker{font-family:var(--mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;color:#8fd6bf;margin:18px 0 10px}
+header.top h1{font-size:clamp(28px,5vw,42px);font-weight:700;margin-bottom:14px}
+header.top p.lead{max-width:640px;font-size:16.5px;opacity:.92}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.badge{font-family:var(--mono);font-size:12px;font-weight:700;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 12px}
+.badge.price{background:var(--mint);border-color:var(--mint);color:#fff}
+
+main{padding:44px 0 20px}
+section{margin-bottom:44px}
+.tag{font-family:var(--mono);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mint-deep);display:block;margin-bottom:10px}
+h2{font-size:24px;font-weight:700;margin-bottom:14px}
+p{margin-bottom:12px;max-width:66ch}
+ul.list{list-style:none;margin:14px 0}
+ul.list li{padding:9px 0 9px 26px;position:relative;border-bottom:1px solid var(--line);font-size:15.5px}
+ul.list li:last-child{border-bottom:none}
+ul.list li::before{content:'→';position:absolute;left:0;color:var(--mint);font-weight:800}
+
+.table2{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--line);margin:12px 0}
+.table2 th{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;text-align:left;padding:11px 14px;background:var(--paper-2)}
+.table2 td{padding:12px 14px;border-top:1px solid var(--line);font-size:14.5px;vertical-align:top}
+.table2 td.f{white-space:nowrap;font-family:var(--mono);font-size:13px;font-weight:700}
+.req{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;background:#fbeed2;color:#8a5c05;border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:middle}
+.opt{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;background:var(--paper-2);color:#6b6353;border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:middle}
+
+.tabs{display:flex;flex-direction:column;gap:22px}
+.tab{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.tab h3{font-size:16.5px;margin-bottom:8px}
+.tab p.note{font-size:14px;opacity:.8;margin-bottom:10px}
+
+.cta{display:inline-block;background:var(--mint);color:#fff !important;font-weight:700;font-size:15px;padding:12px 22px;border-radius:12px;text-decoration:none;margin-top:6px}
+.cta.ghost{background:transparent;color:var(--mint-deep) !important;border:2px solid var(--mint)}
+.price-box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.price-box .amt{font-family:var(--disp);font-size:34px;font-weight:700;color:var(--mint-deep)}
+.price-box .amt span{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--ink);opacity:.7;display:block}
+
+footer.bottom{background:var(--ink);color:var(--paper);padding:38px 0 48px;margin-top:30px}
+footer.bottom a{color:#8fd6bf}
+footer.bottom .fm{font-family:var(--mono);font-size:12.5px;opacity:.75;margin-top:6px}
+
+/* index page: catalog cards */
+.intro-block{padding:40px 0 6px}
+.paycards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}
+@media(max-width:640px){.paycards{grid-template-columns:1fr}}
+.paycard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.paycard h3{font-size:16px;margin-bottom:8px}
+.paycard p{font-size:14.5px;margin-bottom:0}
+.catalog{display:flex;flex-direction:column;gap:12px;margin:20px 0}
+.cardrow{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:border-color .15s}
+.cardrow:hover{border-color:var(--mint)}
+.cardrow .ct{flex:1;min-width:220px}
+.cardrow h3{font-size:16.5px;margin-bottom:4px;color:var(--ink)}
+.cardrow p{font-size:13.5px;opacity:.78;margin-bottom:0;max-width:56ch}
+.cardrow .price{font-family:var(--mono);font-weight:700;font-size:14.5px;color:var(--mint-deep);white-space:nowrap}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="crumb"><a href="/tools/">Tools</a> / SEC Filing Watcher</div>
+    <div class="kicker">Pay-per-call API · AI agents &amp; humans</div>
+    <h1>SEC EDGAR Filing Watcher — New Filings by Ticker</h1>
+    <p class="lead">Point this Actor at a list of tickers and get back every SEC filing that landed in your lookback window — form type, filing date, accession number and a direct document URL. Straight from official SEC EDGAR data: no API key, no browser, no login.</p>
+    <div class="badges">
+      <span class="badge price">$0.01 / call</span>
+      <span class="badge">x402 · USDC on Base</span>
+      <span class="badge">also on Apify</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section id="what">
+      <span class="tag">What it does</span>
+      <h2>Straight answers, no browser required</h2>
+      <ul class="list"><li><strong>One row per ticker</strong>: company name, how many filings matched your window, and the list of those filings — each with <code>form</code>, <code>filedAt</code>, <code>accessionNumber</code>, <code>primaryDocument</code> and a ready-to-open <code>url</code>.</li><li><strong>Filter by form type</strong> (<code>10-K</code>, <code>10-Q</code>, <code>8-K</code>, <code>S-1</code>, …) or leave empty to include every form type.</li><li><strong>Lookback window</strong> up to 10 years (<code>sinceDays</code>, max 3650).</li><li>Up to 100 tickers per run, concurrency up to 10 — SEC EDGAR's own documented rate limit.</li><li>Runs on Apify: schedule it, monitor it, call it from the API or the MCP server, export to JSON, CSV or Excel, or push results straight into your own pipeline.</li></ul>
+    </section>
+
+    <section id="call">
+      <span class="tag">Call it</span>
+      <h2>Two ways to pay</h2>
+      <p>Agents with a wallet pay per call in USDC over HTTP 402 — no API key, no signup. Humans (or agents without a wallet yet) can run the same tool on the Apify Store and pay by card.</p>
+      
+    <div class="tabs">
+      <div class="tab">
+        <h3>1 · Call without payment → get the price</h3>
+        <p class="note">Every call starts unauthenticated. No payment header means the hub answers HTTP 402 with exact <code>PaymentRequirements</code> — no guessing, no docs to read first.</p>
+        <pre><code>curl -s -X POST https://api.timzinin.com/api/sec-edgar-watcher \
+  -H "Content-Type: application/json" \
+  -d '{"tickers": ["AAPL", "TSLA"]}'</code></pre>
+        <p class="note">Response body (HTTP 402):</p>
+        <pre><code>{
+  "x402Version": 1,
+  "accepts": [
+    {
+      "scheme": "exact",
+      "network": "base",
+      "maxAmountRequired": "10000",
+      "resource": "/api/sec-edgar-watcher",
+      "description": "1 call to sec-edgar-watcher",
+      "mimeType": "application/json",
+      "payTo": "0x409D32aD39C02BC9B23a8b2d447532ed801b12dE",
+      "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "extra": {
+        "name": "USD Coin",
+        "version": "2",
+        "decimals": 6
+      }
+    }
+  ]
+}</code></pre>
+      </div>
+      <div class="tab">
+        <h3>2 · Sign the payment, retry once → get data</h3>
+        <p class="note">An x402-aware HTTP client (e.g. <code>x402-fetch</code>, <code>x402-axios</code>) signs a USDC transfer on Base for the exact amount and resends the request with an <code>X-PAYMENT</code> header. The hub verifies the signature, runs the tool, and only <strong>settles the payment if the run succeeds</strong> — a failed run costs you nothing.</p>
+        <pre><code>curl -s -X POST https://api.timzinin.com/api/sec-edgar-watcher \
+  -H "Content-Type: application/json" \
+  -H "X-PAYMENT: &lt;base64 payment payload from your x402 client&gt;" \
+  -d '{"tickers": ["AAPL", "TSLA"]}'</code></pre>
+      </div>
+    </div>
+    
+      <p class="note" style="font-size:14px;opacity:.75;margin-top:8px">Discovery manifest: <code>https://api.timzinin.com/.well-known/x402</code> · Schema: <code>https://api.timzinin.com/api/sec-edgar-watcher/schema</code> · Health: <code>https://api.timzinin.com/health</code></p>
+      
+        <p class="note" style="opacity:.85">Live on the Apify Store — pay by card, no crypto wallet needed.</p>
+        <a class="cta ghost" href="https://apify.com/zinin/sec-edgar-watcher" rel="noopener">See it on the Apify Store →</a>
+        
+    </section>
+
+    <section id="input">
+      <span class="tag">Input</span>
+      <h2>Parameters</h2>
+      <table class="table2"><tr><th>Parameter</th><th>What it does</th></tr><tr><td class="f">tickers<span class="req">required</span></td><td>Stock tickers to watch for new SEC filings (e.g. <code>AAPL</code>, <code>TSLA</code>, <code>NVDA</code>). One row per ticker. (max 100 items) <em style="opacity:.6">— array</em></td></tr><tr><td class="f">formTypes<span class="opt">optional</span></td><td>Only include these SEC form types (e.g. <code>10-K</code>, <code>8-K</code>, <code>S-1</code>). Leave empty to include every form type. (max 30 items) <em style="opacity:.6">— array</em></td></tr><tr><td class="f">sinceDays<span class="opt">optional</span></td><td>Only include filings from the last N days. (default <code>90</code>, range 1–3650) <em style="opacity:.6">— integer</em></td></tr><tr><td class="f">maxConcurrency<span class="opt">optional</span></td><td>How many tickers to process in parallel. SEC EDGAR's documented rate limit is 10 requests/second — keep this at or below 10. (default <code>5</code>, range 1–10) <em style="opacity:.6">— integer</em></td></tr></table>
+    </section>
+
+    <section id="pricing">
+      <span class="tag">Pricing</span>
+      <h2>Flat, per successful call</h2>
+      <div class="price-box">
+        <div><div class="amt">$0.01<span>per call, USDC on Base</span></div></div>
+        <a class="cta" href="https://api.timzinin.com/api/sec-edgar-watcher/schema">View live schema →</a>
+      </div>
+      <p style="margin-top:14px">A run that fails is never settled — you only pay once the tool returns a result. No subscription, no minimum, no API key to manage.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="bottom">
+  <div class="wrap">
+    <div><a href="/tools/">← All tools</a></div>
+    <div class="fm">Built by <a href="https://timzinin.com">Zinin</a>. Questions? Telegram <a href="https://t.me/timzinin">@timzinin</a>.</div>
+  </div>
+</footer>
+
+</body>
+</html>
