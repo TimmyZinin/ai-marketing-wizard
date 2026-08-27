@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Абашидзе — где мы сейчас</title>
+<meta name="description" content="Договорённости по квартире на Абашидзе: даты, деньги, коммуналка, интернет, саблет и кто что делает дальше. Собрано из переписки за 24–27 августа.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Абашидзе — где мы сейчас">
+<meta property="og:description" content="Договор подписан, ключи 2 сентября в 14:00. Что решено по деньгам, коммуналке, интернету и саблету — и что осталось сделать.">
+<meta property="og:url" content="https://timzinin.com/abashidze/">
+<meta property="og:image" content="https://timzinin.com/abashidze/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:#f5f2ed; --ink:#1c1a17; --soft:#6b645a; --faint:#a9a196;
+    --coral:#c5380e; --amber:#e6a817; --leaf:#3e7a4e; --card:#fffdf9; --line:#e3ddd2;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background:var(--paper); color:var(--ink);
+    font-family:"Space Grotesk", system-ui, sans-serif;
+    font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  body::after {
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:999; opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 40px; }
+  @media (max-width:700px){ .wrap{padding:0 20px;} body{font-size:16px;} }
+
+  .hero { padding:64px 0 44px; border-bottom:2px solid var(--ink); }
+  .kicker {
+    font-family:"JetBrains Mono", monospace; font-size:12.5px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--coral); margin-bottom:20px;
+  }
+  h1 { font-family:"Fraunces", Georgia, serif; font-weight:900; font-size:clamp(38px,6.4vw,66px); line-height:1.02; letter-spacing:-.02em; }
+  .lede { margin-top:22px; font-size:clamp(17px,2.1vw,20px); color:var(--soft); max-width:62ch; }
+  .stamp { margin-top:26px; font-family:"JetBrains Mono",monospace; font-size:12.5px; color:var(--faint); }
+
+  section { padding:52px 0; border-bottom:1px solid var(--line); }
+  h2 {
+    font-family:"Fraunces",Georgia,serif; font-weight:700; font-size:clamp(25px,3.4vw,34px);
+    letter-spacing:-.015em; margin-bottom:8px;
+  }
+  .sub { color:var(--soft); font-size:15.5px; margin-bottom:28px; max-width:64ch; }
+  h3 { font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:17px; margin-bottom:10px; }
+
+  .grid { display:grid; gap:16px; }
+  .g2 { grid-template-columns:repeat(2,1fr); }
+  .g3 { grid-template-columns:repeat(3,1fr); }
+  @media (max-width:820px){ .g2,.g3{grid-template-columns:1fr;} }
+
+  .card { background:var(--card); border:1.5px solid var(--line); border-radius:3px; padding:22px 24px; }
+  .card.hot { border-color:var(--coral); border-left-width:5px; }
+  .card.ok  { border-color:var(--leaf);  border-left-width:5px; }
+  .card.wait{ border-color:var(--amber); border-left-width:5px; }
+  .card p { color:var(--soft); font-size:15.5px; }
+  .card p + p { margin-top:9px; }
+  .big { font-family:"Fraunces",Georgia,serif; font-weight:900; font-size:34px; line-height:1; letter-spacing:-.02em; display:block; margin-bottom:6px; }
+  .big.coral{color:var(--coral);} .big.leaf{color:var(--leaf);} .big.amber{color:#b8830a;}
+
+  .tl { list-style:none; border-left:2px solid var(--line); padding-left:0; margin-left:8px; }
+  .tl li { position:relative; padding:0 0 24px 26px; }
+  .tl li::before {
+    content:""; position:absolute; left:-7px; top:6px; width:12px; height:12px;
+    border-radius:50%; background:var(--paper); border:2.5px solid var(--faint);
+  }
+  .tl li.now::before { border-color:var(--coral); background:var(--coral); }
+  .tl li.done::before{ border-color:var(--leaf); background:var(--leaf); }
+  .tl .when { font-family:"JetBrains Mono",monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--coral); }
+  .tl .what { margin-top:3px; font-weight:500; }
+  .tl .who { color:var(--soft); font-size:15px; margin-top:2px; }
+
+  table { width:100%; border-collapse:collapse; margin-top:6px; font-size:15.5px; }
+  th { text-align:left; font-family:"JetBrains Mono",monospace; font-size:11.5px; letter-spacing:.1em;
+       text-transform:uppercase; color:var(--soft); padding:0 14px 10px 0; border-bottom:2px solid var(--ink); font-weight:600; }
+  td { padding:14px 14px 14px 0; border-bottom:1px solid var(--line); vertical-align:top; }
+  td:first-child { font-weight:700; white-space:nowrap; }
+  .tag { display:inline-block; font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.06em;
+         text-transform:uppercase; padding:3px 8px; border-radius:2px; white-space:nowrap; }
+  .t-live { background:#eaf3ec; color:var(--leaf); }
+  .t-wait { background:#fdf3dc; color:#96690a; }
+  .t-off  { background:#f1eee9; color:var(--faint); }
+  .scroll { overflow-x:auto; }
+
+  ul.list { list-style:none; }
+  ul.list li { position:relative; padding-left:22px; margin-bottom:11px; color:var(--soft); font-size:15.5px; }
+  ul.list li::before { content:"—"; position:absolute; left:0; color:var(--faint); }
+  ul.list li b, .card p b { color:var(--ink); font-weight:600; }
+
+  .todo { background:var(--card); border:1.5px solid var(--line); border-radius:3px; padding:6px 24px; }
+  .todo .row { display:flex; gap:16px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--line); }
+  .todo .row:last-child { border-bottom:none; }
+  .box { flex:0 0 18px; height:18px; margin-top:3px; border:2px solid var(--ink); border-radius:2px; }
+  .row.tim .box { border-color:var(--coral); }
+  .row.vio .box { border-color:var(--leaf); }
+  .row .txt b { display:block; margin-bottom:2px; }
+  .row .txt span { color:var(--soft); font-size:15px; }
+  .who-tag { font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+             margin-left:auto; padding:3px 8px; border-radius:2px; white-space:nowrap; }
+  .who-tim { background:#fbe9e2; color:var(--coral); }
+  .who-vio { background:#eaf3ec; color:var(--leaf); }
+  .who-both{ background:#f1eee9; color:var(--soft); }
+
+  .quote { border-left:3px solid var(--amber); padding:4px 0 4px 18px; margin:18px 0; color:var(--soft); font-style:italic; }
+
+  footer { padding:44px 0 64px; color:var(--faint); font-family:"JetBrains Mono",monospace; font-size:12.5px; line-height:1.8; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Абашидзе · сводка на 27 августа</div>
+  <h1>Где мы сейчас</h1>
+  <p class="lede">Договор подписан, ключи забираем 2 сентября в 14:00. Здесь всё, что решено по деньгам, коммуналке, интернету и саблету — и что осталось сделать до заезда.</p>
+  <div class="stamp">Собрано Клодом из переписки за 24–27 августа · 260 сообщений, 19 голосовых</div>
+</header>
+
+<section>
+  <h2>Три вещи, которые уже точно</h2>
+  <p class="sub">Подтверждено хозяйкой в WhatsApp, не предположения.</p>
+  <div class="grid g3">
+    <div class="card ok">
+      <span class="big leaf">2 сен, 14:00</span>
+      <h3>Ключи у Эки</h3>
+      <p>Эка предлагала 12–13, Тим попросил 14:00 — она согласилась. Встреча в квартире.</p>
+    </div>
+    <div class="card ok">
+      <span class="big leaf">Пятница</span>
+      <h3>Вещи можно завозить</h3>
+      <p>Чемодан и коробки Виолетты — до заезда, напрямую с Марией, когда та дома. Ответ Эки: «Yes no problem».</p>
+    </div>
+    <div class="card ok">
+      <span class="big leaf">3 сен</span>
+      <h3>Заезд</h3>
+      <p>Виолетта возвращается из Батуми поздно вечером 3-го. Тим к этому времени уже уезжает.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Календарь</h2>
+  <p class="sub">Кто где находится — от этого зависит, кто что успевает.</p>
+  <ul class="tl">
+    <li class="done">
+      <div class="when">Пн, 24 августа</div>
+      <div class="what">Договор подписан</div>
+      <div class="who">Мила вернула $700 из своего вознаграждения — по $350 каждому</div>
+    </li>
+    <li class="done">
+      <div class="when">Вт, 25 августа</div>
+      <div class="what">Знакомство с Экой в WhatsApp, время и вещи согласованы</div>
+      <div class="who">Общаемся по-английски</div>
+    </li>
+    <li class="now">
+      <div class="when">Чт, 27 августа — сегодня</div>
+      <div class="what">Виолетта перевезла часть вещей, завтра уезжает в Батуми</div>
+      <div class="who">По квартире дальше — только переписка с желающими на саблет</div>
+    </li>
+    <li>
+      <div class="when">Пт, 28 августа</div>
+      <div class="what">Виолетта съезжает со старой квартиры, завозит чемодан и коробки на Абашидзе</div>
+      <div class="who">Договаривается напрямую с Марией</div>
+    </li>
+    <li>
+      <div class="when">Ср, 2 сентября, 14:00</div>
+      <div class="what">Тим забирает ключи у Эки</div>
+      <div class="who">Тим возвращается из Степанцминды после трейла</div>
+    </li>
+    <li>
+      <div class="when">Чт, 3 сентября</div>
+      <div class="what">Заезд. Виолетта приезжает поздно вечером</div>
+      <div class="who">Ключи ей — через Тату (@Tata_Askandari), если никто ещё не заселится</div>
+    </li>
+    <li>
+      <div class="when">3–4 сентября → 19 сентября</div>
+      <div class="what">Тим уезжает и возвращается в Тбилиси 19-го</div>
+      <div class="who">Две недели в квартире свободнее — это аргумент для тех, кто снимает до 18-го</div>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>Деньги за квартиру</h2>
+  <p class="sub">Считаем открыто — это осознанное решение, а не случайность.</p>
+  <div class="grid g3">
+    <div class="card">
+      <span class="big">$1400</span>
+      <h3>Аренда в месяц</h3>
+      <p>Говорим кандидатам прямо. Мы не зарабатываем на людях, а перекрываем стоимость и остаёмся жить в центре.</p>
+    </div>
+    <div class="card">
+      <span class="big amber">$120–200</span>
+      <h3>Коммуналка на всех</h3>
+      <p>Обычно выходит 120–150. Это сверх комнаты — про это говорим сразу, чтобы не создавать иллюзию конечной цены.</p>
+    </div>
+    <div class="card">
+      <span class="big">$700</span>
+      <h3>Залог за собаку</h3>
+      <p>Возвращается при выезде, если ничего не испорчено.</p>
+    </div>
+  </div>
+  <div class="quote">Кандидатам говорим и про то, чего в квартире нет: постельного белья и полотенец. Люди должны закладывать это в свой бюджет — рядом сдают квартиры, где всё новое и запакованное.</div>
+</section>
+
+<section>
+  <h2>Кто на саблет</h2>
+  <p class="sub">Пока все либо отваливаются, либо думают. Интерес есть — время тоже есть.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Кто</th><th>Что хотят</th><th>Деньги</th><th>Статус</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Парень + друг<br><span style="font-weight:400;color:var(--soft)">знакомый сменского знакомого</span></td>
+        <td>Второй этаж, 11–18 сентября</td>
+        <td>$600 на двоих — в порядке исключения, потому что срок короткий</td>
+        <td><span class="tag t-live">Живой</span></td>
+      </tr>
+      <tr>
+        <td>Даша</td>
+        <td>Комната до 18 сентября</td>
+        <td>Считает, что за $750 можно снять отдельную квартиру. Гибче подруги</td>
+        <td><span class="tag t-wait">Думает</span></td>
+      </tr>
+      <tr>
+        <td>Алина<br><span style="font-weight:400;color:var(--soft)">подруга Даши</span></td>
+        <td>Комната на долгий срок</td>
+        <td>Бюджет $300–350, наша цена не подошла</td>
+        <td><span class="tag t-off">Отпала</span></td>
+      </tr>
+      <tr>
+        <td>Натали</td>
+        <td>Комната, ищет по деньгам</td>
+        <td>Идеал $300–400. На $600 согласится, только если ничего не найдёт</td>
+        <td><span class="tag t-wait">Про запас</span></td>
+      </tr>
+      <tr>
+        <td>Дима</td>
+        <td>Возможен на октябрь</td>
+        <td>—</td>
+        <td><span class="tag t-wait">Про запас</span></td>
+      </tr>
+      <tr>
+        <td>@youngtin1<br>и Lina Adzhuntseva</td>
+        <td>Месяц с 8–10 сентября, бюджет $600</td>
+        <td>По объявлению из Клумбы</td>
+        <td><span class="tag t-live">Тим ведёт</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="grid g2" style="margin-top:26px">
+    <div class="card wait">
+      <h3>Цена: где мы сходимся</h3>
+      <p><b>Один человек на втором этаже — $600.</b> Двое до 18 сентября — те же $600, как исключение на короткий срок.</p>
+      <p>На долгий срок вдвоём — <b>заметно дороже</b>: четверо в квартире на месяцы, и все, кроме второго этажа, на первом.</p>
+      <p>Комната с душем должна стоить дороже остальных — насколько, решаем разговором с людьми, а не в уме.</p>
+    </div>
+    <div class="card">
+      <h3>Что стоит спрашивать</h3>
+      <p>Какой бюджет и какие сейчас условия — люди сами скажут, за сколько что снимают, и от этого легче считать.</p>
+      <p>Срок и работу — особенно если по человеку непонятно, чем он зарабатывает.</p>
+      <p>Кастинг нужен: четверо в квартире надолго — это другая история, чем неделя.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Быт: как договорились жить</h2>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Уборка</h3>
+      <p>Своими силами по расписанию — раз в неделю на человека: санузел, кухня или полы.</p>
+      <p>Плюс <b>клининг раз в месяц</b>: четверо человек, сантехника быстро зарастает налётом, тётушка-уборщица по деньгам посильна. Вариант не отбрасываем.</p>
+    </div>
+    <div class="card">
+      <h3>Общий котёл</h3>
+      <p>Скидываемся раз в месяц на бытовуху — туалетная бумага, средства для мытья, мелочь. Недорого и честно, потому что пользуются все.</p>
+      <p>Про коммуналку и возможный клининг говорим людям на входе, а не после заезда.</p>
+    </div>
+    <div class="card">
+      <h3>Душевой дисбаланс</h3>
+      <p>У второго этажа свой душ, остальные трое — общая ванна без шторки. Решаем по ходу: шторка или просто вытирать пол.</p>
+    </div>
+    <div class="card">
+      <h3>Что докупаем</h3>
+      <p>Кухня почти пустая: холодильник, посудомойка, мойка, плита. Виолетта берёт блендер, кастрюли и мелочь, чтобы можно было готовить с первого дня. Плюс полка в ванную на первом этаже.</p>
+      <p><b>Полка для обуви отменяется</b> — Афи проявляет к обуви интерес.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Коммуналка и интернет</h2>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Три платежа в TBC</h3>
+      <p>Telmico, Tbilisi Energy, Silknet — привязываем по идентификационным номерам в приложении.</p>
+      <p><b>Интернет — до 10 числа, коммуналка — до 15.</b> Счётчики снимать не нужно, всё автоматом. Суммы плавают по потреблению.</p>
+      <p>Занимаемся этим в первые дни после переезда.</p>
+    </div>
+    <div class="card hot">
+      <h3>Интернет: решение за Тимом</h3>
+      <p>Сейчас у Silknet дорогой тариф <b>$80</b>, дешёвый — <b>$41</b>. Виолетта согласна на 40; если для работы нужно быстрее — берём быстрее.</p>
+      <p><b>Второй этаж домашний интернет почти не пробивает.</b> Это надо сказать Эке — заодно с ключами.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Что дальше</h2>
+  <p class="sub">Разложено по людям, чтобы ничего не повисло.</p>
+  <div class="todo">
+    <div class="row tim">
+      <div class="box"></div>
+      <div class="txt"><b>Проверить тарифы Silknet и выбрать</b><span>В течение суток — потом написать Эке про тариф и про то, что второй этаж не ловит</span></div>
+      <span class="who-tag who-tim">Тим</span>
+    </div>
+    <div class="row tim">
+      <div class="box"></div>
+      <div class="txt"><b>Забрать ключи 2 сентября в 14:00</b><span>И передать комплект Тате до отъезда — Виолетта заберёт по дороге с вокзала</span></div>
+      <span class="who-tag who-tim">Тим</span>
+    </div>
+    <div class="row tim">
+      <div class="box"></div>
+      <div class="txt"><b>Довести до ответа @youngtin1 и Lina</b><span>Месяц с 8–10 сентября, бюджет $600</span></div>
+      <span class="who-tag who-tim">Тим</span>
+    </div>
+    <div class="row vio">
+      <div class="box"></div>
+      <div class="txt"><b>Завезти вещи в пятницу</b><span>Через Марию, когда та дома. Хозяйку не тревожим</span></div>
+      <span class="who-tag who-vio">Виолетта</span>
+    </div>
+    <div class="row vio">
+      <div class="box"></div>
+      <div class="txt"><b>Довести парня с другом на 11–18 сентября</b><span>$600 на двоих как исключение за короткий срок</span></div>
+      <span class="who-tag who-vio">Виолетта</span>
+    </div>
+    <div class="row vio">
+      <div class="box"></div>
+      <div class="txt"><b>Докупить кухню и полку в ванную</b><span>Блендер, кастрюли, мелочь — чтобы готовить с первого дня</span></div>
+      <span class="who-tag who-vio">Виолетта</span>
+    </div>
+    <div class="row">
+      <div class="box"></div>
+      <div class="txt"><b>Привязать три платежа в TBC</b><span>Telmico, Tbilisi Energy, Silknet — в первые дни после переезда</span></div>
+      <span class="who-tag who-both">Вместе</span>
+    </div>
+    <div class="row">
+      <div class="box"></div>
+      <div class="txt"><b>Держать друг друга в курсе по кандидатам</b><span>Кто ответил, кто отвалился — чтобы не обещать одну комнату дважды</span></div>
+      <span class="who-tag who-both">Вместе</span>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:none">
+  <h2>Вещи Виолетты в квартире</h2>
+  <p class="sub">Чтобы Тим ничего не перепутал, когда приедет.</p>
+  <ul class="list">
+    <li><b>Чемодан</b> — стоит в спальне Тима, потому что съезжающие вывозили своё и всё сложили в одно место. Чистый, можно просто перенести в спальню Виолетты</li>
+    <li><b>Белый пакет в тазике</b> — на кухню, не в холодильник. Не портится</li>
+    <li><b>Картонная коробка</b> — средства для уборки и жидкое мыло для рук, подгон от Виолетты. На первое время хватит, дозатор придётся докупить</li>
+    <li><b>Кроссовки в белом пакете</b> — в шкафу в прихожей</li>
+  </ul>
+</section>
+
+<footer class="wrap">
+  Собрано из переписки 24–27 августа 2026: 260 сообщений, 19 голосовых расшифровано.<br>
+  Страница закрыта от поиска. Ссылка живёт по прямому адресу.
+</footer>
+
+</div>
+</body>
+</html>
